@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nancy Chacón Rodríguez | Epidemiología y Analítica de Datos</title>
+
+<meta name="description" content="Portafolio profesional de Nancy Chacón Rodríguez. Especialista en Epidemiología, Salud Pública, Power BI, Python e Inteligencia Artificial.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#F8FAFC;
+    --card:#FFFFFF;
+    --border:#E2E8F0;
+    --title:#0F172A;
+    --text:#475569;
+    --primary:#0284C7;
+    --hover:#0369A1;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    z-index:1000;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:75px;
+}
+
+.logo{
+    font-weight:800;
+    color:var(--title);
+    font-size:1.2rem;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--text);
+    font-weight:500;
+}
+
+nav a:hover{
+    color:var(--primary);
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:600px;
+    height:600px;
+    background:rgba(2,132,199,.08);
+    border-radius:50%;
+    top:-250px;
+    right:-150px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 18px;
+    background:#e0f2fe;
+    color:var(--primary);
+    border-radius:50px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    color:var(--title);
+    font-size:4rem;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.15rem;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+    text-decoration:none;
+    padding:15px 24px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.btn-primary:hover{
+    background:var(--hover);
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    border:1px solid var(--border);
+    color:var(--title);
+    text-decoration:none;
+    padding:15px 24px;
+    border-radius:12px;
+}
+
+.profile-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:30px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(15,23,42,.08);
+}
+
+.profile-card img{
+    width:100%;
+    max-width:350px;
+    border-radius:25px;
+}
+
+.section{
+    padding:100px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:20px;
+    color:var(--title);
+    font-size:2.5rem;
+}
+
+.section-subtitle{
+    text-align:center;
+    max-width:800px;
+    margin:auto;
+    margin-bottom:60px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    margin-top:60px;
+}
+
+.stat{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:20px;
+    text-align:center;
+    padding:30px;
+}
+
+.stat h3{
+    color:var(--primary);
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:30px;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(2,132,199,.12);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:var(--title);
+}
+
+.skills{
+    max-width:900px;
+    margin:auto;
+}
+
+.skill{
+    margin-bottom:25px;
+}
+
+.skill-header{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.bar{
+    height:12px;
+    background:#d9e3ee;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    background:linear-gradient(90deg,var(--primary),#38bdf8);
+    border-radius:20px;
+}
+
+.timeline{
+    max-width:900px;
+    margin:auto;
+}
+
+.timeline-item{
+    background:white;
+    border:1px solid var(--border);
+    border-left:5px solid var(--primary);
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:20px;
+}
+
+.timeline-item h3{
+    color:var(--title);
+    margin-bottom:10px;
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact-box{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:30px;
+    padding:50px;
+    max-width:900px;
+    margin:auto;
+}
+
+.contact-links{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.contact-links a{
+    text-decoration:none;
+    background:var(--primary);
+    color:white;
+    padding:14px 22px;
+    border-radius:12px;
+}
+
+footer{
+    padding:40px;
+    text-align:center;
+    border-top:1px solid var(--border);
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(30px);
+    transition:all .8s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:900px){
+
+.hero{
+    padding-top:120px;
+}
+
+.hero-grid{
+    grid-template-columns:1fr;
+}
+
+.hero h1{
+    font-size:2.6rem;
+}
+
+.stats{
+    grid-template-columns:repeat(2,1fr);
+}
+
+nav ul{
+    display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="container">
+
+<div class="logo">
+Nancy Chacón Rodríguez
+</div>
+
+<ul>
+<li><a href="#perfil">Perfil</a></li>
+<li><a href="#servicios">Servicios</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#experiencia">Experiencia</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+
+</nav>
+</header>
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div>
+
+<span class="badge">
+Epidemiología • Salud Pública • Data Analytics
+</span>
+
+<h1>
+Transformando datos en decisiones que generan impacto.
+</h1>
+
+<p>
+Soy Nancy Chacón Rodríguez, especialista en epidemiología, bacterióloga y profesional orientada al análisis estratégico de información en salud. Integro epidemiología, Power BI, Python e inteligencia artificial para construir soluciones basadas en evidencia.
+</p>
+
+<div class="buttons">
+
+<a href="#servicios" class="btn-primary">
+Mis Servicios
+</a>
+
+<a href="#contacto" class="btn-secondary">
+Contáctame
+</a>
+
+</div>
+
+</div>
+
+<div class="profile-card">
+
+<img src="assets/profile.jpg" alt="Nancy Chacón Rodríguez">
+
+</div>
+
+</div>
+
+</section>
+
+<section id="perfil" class="section reveal">
+
+<div class="container">
+
+<h2 class="section-title">
+Perfil Profesional
+</h2>
+
+<p class="section-subtitle">
+
+Especialista en epidemiología con experiencia en vigilancia en salud pública, observatorios de salud, salud ambiental, gestión del conocimiento, investigación aplicada y analítica de datos. Mi enfoque combina conocimiento técnico, pensamiento estratégico y herramientas digitales para generar información útil para la toma de decisiones.
+
+</p>
+
+<div class="stats">
+
+<div class="stat">
+<h3>15+</h3>
+<p>Años de experiencia</p>
+</div>
+
+<div class="stat">
+<h3>100+</h3>
+<p>Indicadores analizados</p>
+</div>
+
+<div class="stat">
+<h3>20+</h3>
+<p>Productos técnicos</p>
+</div>
+
+<div class="stat">
+<h3>10+</h3>
+<p>Proyectos estratégicos</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="servicios" class="section reveal">
+
+<div class="container">
+
+<h2 class="section-title">
+Servicios Profesionales
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>📊 Epidemiología Aplicada</h3>
+<p>Análisis epidemiológico, vigilancia y generación de evidencia para la toma de decisiones.</p>
+</div>
+
+<div class="card">
+<h3>📈 Power BI</h3>
+<p>Diseño de dashboards ejecutivos, indicadores y sistemas de monitoreo.</p>
+</div>
+
+<div class="card">
+<h3>💾 Analítica de Datos</h3>
+<p>Limpieza, transformación y análisis de información para organismos de salud.</p>
+</div>
+
+<div class="card">
+<h3>🌎 Salud Ambiental</h3>
+<p>Análisis de riesgos ambientales y determinantes de salud.</p>
+</div>
+
+<div class="card">
+<h3>🧪 Investigación</h3>
+<p>Diseño metodológico, análisis estadístico e interpretación de resultados.</p>
+</div>
+
+<div class="card">
+<h3>🤖 Inteligencia Artificial</h3>
+<p>Automatización de procesos, Python y soluciones con IA generativa.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="skills" class="section reveal">
+
+<div class="container">
+
+<h2 class="section-title">
+Competencias Clave
+</h2>
+
+<div class="skills">
+
+<div class="skill">
+<div class="skill-header">
+<span>Epidemiología</span>
+<span>95%</span>
+</div>
+<div class="bar"><div class="fill" style="width:95%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-header">
+<span>Salud Pública</span>
+<span>95%</span>
+</div>
+<div class="bar"><div class="fill" style="width:95%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-header">
+<span>Power BI</span>
+<span>90%</span>
+</div>
+<div class="bar"><div class="fill" style="width:90%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-header">
+<span>Python</span>
+<span>85%</span>
+</div>
+<div class="bar"><div class="fill" style="width:85%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-header">
+<span>SQL</span>
+<span>80%</span>
+</div>
+<div class="bar"><div class="fill" style="width:80%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-header">
+<span>Inteligencia Artificial</span>
+<span>85%</span>
+</div>
+<div class="bar"><div class="fill" style="width:85%"></div></div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="experiencia" class="section reveal">
+
+<div class="container">
+
+<h2 class="section-title">
+Trayectoria
+</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>Observatorio de Salud</h3>
+<p>Análisis poblacional e inteligencia epidemiológica para la toma de decisiones.</p>
+</div>
+
+<div class="timeline-item">
+<h3>Secretaría Distrital de Salud</h3>
+<p>Monitoreo de indicadores y vigilancia en salud pública.</p>
+</div>
+
+<div class="timeline-item">
+<h3>Salud Ambiental</h3>
+<p>Análisis de determinantes ambientales y riesgos asociados a la salud.</p>
+</div>
+
+<div class="timeline-item">
+<h3>Transformación Digital</h3>
+<p>Desarrollo de soluciones analíticas mediante Power BI, Python e IA.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contacto" class="section contact reveal">
+
+<div class="container">
+
+<div class="contact-box">
+
+<h2 class="section-title">
+Construyamos algo juntos
+</h2>
+
+<p>
+Disponible para proyectos de epidemiología, salud pública, ciencia de datos, analítica avanzada y automatización.
+</p>
+
+<div class="contact-links">
+
+<a href="#">
+LinkedIn
+</a>
+
+<a href="#">
+GitHub
+</a>
+
+<a href="mailto:correo@ejemplo.com">
+Correo
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Nancy Chacón Rodríguez | Epidemiología • Ciencia de Datos • IA
+</footer>
+
+<script>
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+entry.target.classList.add('active');
+}
+
+});
+
+},{threshold:0.1});
+
+document.querySelectorAll('.reveal').forEach(el=>{
+observer.observe(el);
+});
+
+</script>
+
+</body>
+</html>
